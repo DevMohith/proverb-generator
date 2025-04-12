@@ -1,19 +1,17 @@
 
-✨ Proverb Generator – Custom GenAI Model with PyTorch
+Proverb Generator – Custom GenAI Model with PyTorch
 
 This project is a **custom Generative AI (GenAI) model** built from scratch using **PyTorch and LSTM architecture**. It generates proverbs based on user-provided keywords (like "strength", "hope", "wisdom"), and is trained on a dataset of 1000+ keyword-tagged proverbs. Integrated backend using flask with reactJS
 
-> 🧠 Not an LLM – this is a lightweight, domain-specific **Generative AI model**, trained without relying on APIs like OpenAI.
+ Features
 
-💡 Features
+-  Built entirely with **PyTorch** (custom LSTM-based neural network)
+-  Trained on over **1000+ curated proverbs** with keyword context
+-  Accepts dynamic **keywords from users** and generates meaningful proverbs
+-  Character-level text generation with soft thematic matching
+-  Connected to a **React frontend** via Flask API for live usage
 
-- 🔥 Built entirely with **PyTorch** (custom LSTM-based neural network)
-- 📜 Trained on over **1000+ curated proverbs** with keyword context
-- 🎯 Accepts dynamic **keywords from users** and generates meaningful proverbs
-- ⚡ Character-level text generation with soft thematic matching
-- 🌐 Connected to a **React frontend** via Flask API for live usage
-
-🚀 Tech Stack
+ Tech Stack
 
  Frontend   React + TailwindCSS + Axios     
  Backend    Python Flask API                
@@ -21,31 +19,31 @@ This project is a **custom Generative AI (GenAI) model** built from scratch usin
  Training   Manual training loop, checkpoint saving
  Dataset    Custom `keyword: proverb` format
 
-🧪 Sample Usage
+Sample Usage
 
-✅ Input:
+Input:
 { "keyword": "courage" }
 
-🧠 Output:
+Output:
 Greetings! My friend 👫
 courage: the courage that bends doesn't break.
 
-📚 How to Run
+How to Run
 production links : 
 
 
-💻 Start the frontend (React):
+Start the frontend (React):
 cd frontend
 npm install
 npm run dev
 
 
-🏷️ Keywords
+🏷Keywords
 
 Generative AI · PyTorch · Custom LLM · LSTM · Natural Language Generation · React · Flask · Deep Learning
 
 ✨ Author
 
-👤 Mohith — Full Stack + GenAI Dev
-🎓 Deep Learning & Generative AI Associate
-📫 Reach me for collabs & questions!
+Mohith — Full Stack + GenAI Dev
+Deep Learning & Generative AI Associate
+Reach me for collabs & questions!
