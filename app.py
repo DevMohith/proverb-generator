@@ -14,7 +14,7 @@ def generate():
     if not keyword:
         return jsonify({"proverb": "❌ No keyword provided."}), 400
 
-    proverb = generate_text(model, seed_text=keyword)
+    proverb = generate_text(seed_text=keyword)
     return jsonify({"proverb": proverb})
 
 if __name__ == '__main__':

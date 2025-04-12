@@ -1,54 +1,68 @@
 import { useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 import { Input } from './components/ui/input';
 import { Button } from './components/ui/button';
 import { Card, CardContent } from './components/ui/card';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Copy } from 'lucide-react';
 import { motion } from 'framer-motion';
+import "./App.css";
 
 function App() {
   const [keyword, setKeyword] = useState('');
   const [proverb, setProverb] = useState('');
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const handleGenerate = async () => {
     if (!keyword) return;
-    setLoading (true);
+    setLoading(true);
     try {
-      const respose = await axios.post('http://127.0.0.1:5000/generate', {keyword});
-      setProverb(respose.data.proverb);
-    } catch (error) {
-      setProverb('Error generating your request, please try again later.');
+      const response = await axios.post('http://localhost:5000/generate', { keyword });
+      setProverb(response.data.proverb);
+      setCopied(false);
+    } catch (err) {
+      setProverb('⚠️ Error generating proverb. Please try again later.', err);
     } finally {
       setLoading(false);
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-white to-purple-100 flex flex-col items-center justify-center p-4">
-      <motion.h1
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl font-extrabold text-purple-700 flex items-center gap-2 mb-4"
-      >
-        <Sparkles className="w-8 h-8 text-yellow-500" /> Proverb Generator
-      </motion.h1>
+  const handleCopy = () => {
+    navigator.clipboard.writeText(proverb);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 space-y-4">
-        <Input
-          placeholder="Enter a theme (e.g., courage, patience, wisdom)"
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-          className="border-purple-300 focus:border-purple-500"
-        />
-        <Button
-          onClick={handleGenerate}
-          disabled={loading}
-          className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+  return (
+    <div className="app-wrapper">
+      <div className="generated-card">
+        <motion.h1
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          {loading ? 'Crafting wisdom...' : 'Generate Proverb'}
-        </Button>
+          <Sparkles style={{ marginRight: '10px', color: '#facc15' }} />
+          Proverb Generator
+        </motion.h1>
+
+        <div>
+          <Input
+            placeholder="💡 Enter a theme (e.g., courage, patience, wisdom)"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            className="input"
+            style={{ height: '40px', width: '400px'}}
+            
+          />
+
+          <Button
+            onClick={handleGenerate}
+            disabled={loading}
+            className="button"
+          >
+            {loading ? '✨ Crafting Wisdom...' : '🔮 Generate Proverb'}
+          </Button>
+        </div>
 
         {proverb && (
           <motion.div
@@ -56,14 +70,17 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
           >
-            <Card className="bg-yellow-50 border-2 border-purple-200 rounded-xl">
-              <CardContent className="p-4 text-center">
-                <p className="text-lg italic text-purple-700 whitespace-pre-line">{proverb}</p>
-              </CardContent>
-            </Card>
+            <div className="card" style={{ backgroundColor: '#fff', color: '#000', padding: '20px', borderRadius: '10px', position: 'relative' }}>
+              <pre style={{ whiteSpace: 'pre-line', fontSize: '16px' }}>{proverb}</pre>
+              <button onClick={handleCopy} style={{ position: 'absolute', top: '10px', right: '10px', background: 'none', border: 'none', cursor: 'pointer' }}>
+                <Copy size={20} color="#6b21a8" />
+              </button>
+              {copied && <span style={{ position: 'absolute', top: '10px', right: '35px', fontSize: '12px', color: 'green' }}>Copied!</span>}
+            </div>
           </motion.div>
         )}
       </div>
+      <p className="footer-tag">💻 Mohith — Website & GenAI Model Developer</p>
     </div>
   );
 }

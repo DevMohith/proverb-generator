@@ -33,14 +33,11 @@ def load_model():
     model.eval()
     return model
 
-def generate_text(model, seed_text="friend", length=100):
+def generate_text(seed_text="goal", length=100):
+    model = load_model()
+    model.eval()
     greeting = random.choice([
-        "Hello! How are you? 🤷‍♂️", 
-        "Good day! Madam/Sir 👸 🤴", 
-        "Namaskar Logon! Kya halath? 🙏", 
-        "Greetings! My friend 👫", 
-        "Hi Matcha!👋 ", 
-        "My Dear Friend! I love your feel 🤝"
+        "Hello! How are you? 🌼", "Good day! 🌞", "Namaste! 🙏", "Hi Matcha! 👋"
     ])
     prompt = f"{seed_text}: "
     input_chars = prompt[-seq_length:].lower().rjust(seq_length)
@@ -57,4 +54,8 @@ def generate_text(model, seed_text="friend", length=100):
         result += char
         input_idx = torch.tensor([[*input_idx[0][1:], idx]])
 
-    return result
+        #  stops with displaying 1st proverb
+        if char == '.' or char == '\n':
+            break
+
+    return result.strip()

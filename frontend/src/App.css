@@ -1,42 +1,75 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* index.css or App.css */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #c084fc;
+  margin-bottom: 20px;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input[type="text"] {
+  padding: 20px 20px;
+  border: 2px solid #a855f7;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  outline: none;
+  width: 300px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button {
+  padding: 12px 25px;
+  background-color: #9333ea;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #7e22ce;
 }
 
 .card {
-  padding: 2em;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  border: 1px solid #a855f7;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.read-the-docs {
-  color: #888;
+.footer-tag {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  font-size: 14px;
+  color: #c084fc;
+  opacity: 0.9;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #a855f7, 0 0 10px #a855f7;
+  }
+  to {
+    text-shadow: 0 0 20px #9333ea, 0 0 30px #9333ea;
+  }
 }
