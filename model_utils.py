@@ -35,8 +35,8 @@ def load_model():
 
 def generate_text(model, seed_text="discipline", length=100):
     greeting = random.choice([
-        "Hello!", "Good day!", "Namaste!", 
-        "Greetings!", "Hi Matcha!", "My Friend!"
+        "Hello! How are you? 🤷‍♂️", "Good day! Madam/Sir 👸 🤴", "Namaskar Logon! 🙏", 
+        "Greetings! My friend 👫", "Hi Matcha!👋 ", "My Dear Friend! 🤝"
     ])
     input_chars = seed_text[-seq_length:].lower().rjust(seq_length)
     input_idx = torch.tensor([[char_to_idx.get(c, 0) for c in input_chars]])
