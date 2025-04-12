@@ -10,9 +10,11 @@ model = load_model()
 @app.route('/generate', methods=['POST'])
 def generate():
     data = request.get_json()
-    print("📩 Data received:", data)
-    keyword = data.get("keyword", "")
-    proverb = generate_text(model, keyword)
+    keyword = data.get("keyword", "").strip().lower()
+    if not keyword:
+        return jsonify({"proverb": "❌ No keyword provided."}), 400
+
+    proverb = generate_text(model, seed_text=keyword)
     return jsonify({"proverb": proverb})
 
 if __name__ == '__main__':

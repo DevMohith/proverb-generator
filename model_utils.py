@@ -33,12 +33,17 @@ def load_model():
     model.eval()
     return model
 
-def generate_text(model, seed_text="discipline", length=100):
+def generate_text(model, seed_text="friend", length=100):
     greeting = random.choice([
-        "Hello! How are you? 🤷‍♂️", "Good day! Madam/Sir 👸 🤴", "Namaskar Logon! 🙏", 
-        "Greetings! My friend 👫", "Hi Matcha!👋 ", "My Dear Friend! 🤝"
+        "Hello! How are you? 🤷‍♂️", 
+        "Good day! Madam/Sir 👸 🤴", 
+        "Namaskar Logon! Kya halath? 🙏", 
+        "Greetings! My friend 👫", 
+        "Hi Matcha!👋 ", 
+        "My Dear Friend! I love your feel 🤝"
     ])
-    input_chars = seed_text[-seq_length:].lower().rjust(seq_length)
+    prompt = f"{seed_text}: "
+    input_chars = prompt[-seq_length:].lower().rjust(seq_length)
     input_idx = torch.tensor([[char_to_idx.get(c, 0) for c in input_chars]])
 
     result = greeting + "\n"
