@@ -47,12 +47,17 @@ function App() {
 
         <div>
           <Input
+            type="text"
             placeholder="💡 Enter a theme (e.g., courage, patience, wisdom)"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
             className="input"
             style={{ height: '40px', width: '400px'}}
-            
+            onKeyDown={(e)=>{
+              if (e.key === 'Enter'){
+                handleGenerate();
+              }
+            }}
           />
 
           <Button
@@ -62,6 +67,7 @@ function App() {
           >
             {loading ? '✨ Crafting Wisdom...' : '🔮 Generate Proverb'}
           </Button>
+
         </div>
 
         {proverb && (
@@ -80,7 +86,7 @@ function App() {
           </motion.div>
         )}
       </div>
-      <p className="footer-tag">💻 Mohith — Website & GenAI Model Developer</p>
+      <p className="footer-tag">💻 <a href='https://www.linkedin.com/in/mohithtummala/'>Mohith Tummala</a> — Website & GenAI Model Developer</p>
     </div>
   );
 }
