@@ -52,7 +52,7 @@ for epoch in range(epochs):
         print("🔮 Sample Proverb:")
         print(generate_text(model, seed_text="friendship"))
 
-    # 💾 Save model every few epochs
+    # 💾 Save model every few epochss
     if (epoch + 1) % 5 == 0:
         torch.save(model.state_dict(), "trained_model.pth")
         print("✅ Model checkpoint saved!")
