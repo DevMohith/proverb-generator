@@ -1,3 +1,4 @@
+<img width="943" alt="image" src="https://github.com/user-attachments/assets/ef5cc77e-ff9f-4136-ac70-6737adfa37a4" />
 
 Proverb Generator – Custom GenAI Model with PyTorch
 
