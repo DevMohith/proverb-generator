@@ -1,6 +1,8 @@
 Proverb Generator – Custom GenAI Model with PyTorch
 
-This project is a **custom Generative AI (GenAI) model** built from scratch using **PyTorch and LSTM architecture**. It generates proverbs based on user-provided keywords (like "strength", "hope", "wisdom"), and is trained on a dataset of 1000+ keyword-tagged proverbs refer to the dataset.csv used for model development. Integrated backend using flask with reactJS
+This project is a **custom Generative AI (GenAI) model** built from scratch using **PyTorch and LSTM architecture**. It generates proverbs based on user-provided keywords (like "strength", "hope", "wisdom"), and is trained on a dataset of 1000+ keyword-tagged proverbs refer to the dataset.csv used for model development. Integrated backend using flask with reactJS.
+
+used greeting function and looping it through different proverbs to show sentiment kind of analysis with every proverb for good user experience and setiment.
 
 <img width="943" alt="image" src="https://github.com/user-attachments/assets/ef5cc77e-ff9f-4136-ac70-6737adfa37a4" />
 
@@ -27,11 +29,9 @@ Input:
 { "keyword": "courage" }
 
 Output:
-Greetings! My friend 👫
+Greetings! My friend
 courage: the courage that bends doesn't break.
 
-How to Run
-production links : 
 
 
 Start the frontend (React):
@@ -40,11 +40,11 @@ npm install
 npm run dev
 
 
-🏷Keywords
+Keywords
 
 Generative AI · PyTorch · Custom LLM · LSTM · Natural Language Generation · React · Flask · Deep Learning
 
-✨ Author
+Author
 
 Mohith — Full Stack + GenAI Dev
 Deep Learning & Generative AI Associate
