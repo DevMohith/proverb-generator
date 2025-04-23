@@ -19,12 +19,12 @@ input_seq = torch.tensor(input_seq)
 target_seq = torch.tensor(target_seq)
 
 model = LSTMGenerator(vocab_size, hidden_size=128)
-# ✅ Try to load previously saved model weights (for continued training)
+#  Try to load previously saved model weights (for continued training)
 try:
     model.load_state_dict(torch.load("trained_model.pth"))
-    print("🔁 Loaded existing model weights. Continuing training...")
+    print("Loaded existing model weights. Continuing training...")
 except FileNotFoundError:
-    print("🚀 No pre-trained model found. Starting fresh.")
+    print("No pre-trained model found. Starting fresh.")
 
 loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
@@ -47,16 +47,16 @@ for epoch in range(epochs):
         total_loss += loss.item()
     print(f"Epoch {epoch+1}, Loss: {total_loss:.4f}")
 
-    # 💬 Show sample output after training this epoch
+    # Show sample output after training this epoch
     if (epoch + 1) % 1 == 0:
         print("🔮 Sample Proverb:")
         print(generate_text(model, seed_text="friendship"))
 
-    # 💾 Save model every few epochss
+    # Save model every few epochss
     if (epoch + 1) % 5 == 0:
         torch.save(model.state_dict(), "trained_model.pth")
-        print("✅ Model checkpoint saved!")
+        print("Model checkpoint saved!")
 
 # saving the trained model
 torch.save(model.state_dict(), "trained_model.pth")
-print("✅ Model saved.")
+print("Model saved.")

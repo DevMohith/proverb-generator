@@ -12,7 +12,7 @@ def generate():
     data = request.get_json()
     keyword = data.get("keyword", "").strip().lower()
     if not keyword:
-        return jsonify({"proverb": "❌ No keyword provided."}), 400
+        return jsonify({"proverb": " No keyword provided."}), 400
 
     proverb = generate_text(seed_text=keyword)
     return jsonify({"proverb": proverb})
