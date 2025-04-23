@@ -31,7 +31,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
 
 
 # change epocs mainly increase for good training
-epochs = 50
+epochs = 48
 batch_size = 128
 
 for epoch in range(epochs):
