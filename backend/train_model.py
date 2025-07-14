@@ -49,7 +49,7 @@ for epoch in range(epochs):
 
     # Show sample output after training this epoch
     if (epoch + 1) % 1 == 0:
-        print("🔮 Sample Proverb:")
+        print("Sample Proverb:")
         print(generate_text(model, seed_text="friendship"))
 
     # Save model every few epochss
