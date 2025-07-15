@@ -18,7 +18,7 @@ combining proverbs with sentiment-aware greetings and looped message feedback to
  Tech Stack
 
  Frontend   React + TailwindCSS + Axios     
- Backend    Python Flask API                
+ Backend    Flask                
  Model      PyTorch LSTM (Custom GenAI)   
  Training   Manual training loop, checkpoint saving
  Dataset    Custom `keyword: proverb` format
