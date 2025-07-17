@@ -8,7 +8,7 @@ combining proverbs with sentiment-aware greetings and looped message feedback to
 
 
  Features
-
+- 
 -  Built entirely with **PyTorch** (custom LSTM-based neural network)
 -  Trained on over **1000+ curated proverbs** with keyword context
 -  Accepts dynamic **keywords from users** and generates meaningful proverbs
