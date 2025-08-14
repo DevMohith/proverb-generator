@@ -7,7 +7,7 @@ combining proverbs with sentiment-aware greetings and looped message feedback to
 <img width="943" alt="image" src="https://github.com/user-attachments/assets/ef5cc77e-ff9f-4136-ac70-6737adfa37a4" />
 
 
- Features
+ Featuress
 - 
 -  Built entirely with **PyTorch** (custom LSTM-based neural network)
 -  Trained on over **1000+ curated proverbs** with keyword context
